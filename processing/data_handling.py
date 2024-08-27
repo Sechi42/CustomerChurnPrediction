@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 import joblib
-from prediction_model.config import config
+from config import config
 from functools import reduce
 from sklearn.model_selection import train_test_split
 
