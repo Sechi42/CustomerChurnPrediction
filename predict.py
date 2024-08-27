@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 import joblib
-from prediction_model.config import config  
-from prediction_model.processing.data_handling import load_pipeline, load_dataset, split_dataset
+from config import config  
+from processing.data_handling import load_pipeline, load_dataset, split_dataset
 import os
 from sklearn.metrics import roc_auc_score, accuracy_score
 

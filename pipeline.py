@@ -1,6 +1,6 @@
 from sklearn.pipeline import Pipeline
-from prediction_model.processing import preprocessing as pp
-from prediction_model.config import config 
+from processing import preprocessing as pp
+from config import config 
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LogisticRegression
 import numpy as np
