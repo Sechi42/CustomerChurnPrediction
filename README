@@ -46,3 +46,85 @@ En cada archivo, la columna `customerID` (ID de cliente) contiene un código ún
 - **0.85 ≤ AUC-ROC < 0.87** — 5 SP
 - **0.87 ≤ AUC-ROC < 0.88** — 5.5 SP
 - **AUC-ROC ≥ 0.88** — 6 SP
+
+
+## Running Locally
+
+Add PYTHONPATH variable for `~/.bash_profile ` for MacOS
+```export PYTHONPATH="/Users/nachiketh/Desktop/author-repo/Complete-MLOps-BootCamp/Packaging-ML-Model/packaging-ml-model:$PYTHONPATH"
+```
+
+## Virtual Environment
+Install virtualenv
+
+```python
+python3 -m pip install virtualenv
+```
+
+Check version
+```python
+virtualenv --version
+```
+
+Create virtual environment
+
+```python
+virtualenv ml_package
+```
+
+Activate virtual environment
+
+For Linux/Mac
+```python
+source ml_package/bin/activate
+```
+For Windows
+```python
+ml_package\Scripts\activate
+```
+
+Deactivate virtual environment
+
+```python
+deactivate
+```
+
+
+## Directory structure
+
+```bash
+prediction_model
+
+
+├── MANIFEST.in
+├── README.md
+├── VERSION
+├── __init__.py
+├── config
+│   ├── __init__.py
+│   └── config.py
+├── datasets
+│   ├── __init__.py
+│   ├── test.csv
+│   ├── train.csv
+│   ├── contract.csv
+│   ├── internet.csv
+│   ├── personal.csv
+│   └── phone.csv
+├── pipeline.py
+├── predict.py
+├── processing
+│   ├── __init__.py
+│   ├── data_handling.py
+│   └── preprocessing.py
+├── trained_models
+│   ├── __init__.py
+│   └── classification.pkl
+├── training_pipeline.py
+├── requirements.txt
+├── setup.py
+└── tests
+    ├── pytest.ini
+    └── test_prediction.py
+
+```
