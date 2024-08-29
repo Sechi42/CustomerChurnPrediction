@@ -21,7 +21,7 @@ sys.path.append(str(PACKAGE_ROOT))
 from config import config
 from processing.data_handling import load_dataset, load_pipeline, merge_datasets
 
-classification_pipeline_1 = load_pipeline(pipeline_to_load=config.MODEL_NAME_1, model_name=config.MODEL_NAME_1)
+classification_pipeline_4 = load_pipeline(pipeline_to_load=config.MODEL_NAME_4, model_name=config.MODEL_NAME_4)
 
 app = FastAPI()
 
@@ -29,9 +29,7 @@ app = FastAPI()
 # Perform parsing
 
 class ChurnPred(BaseModel):
-    customerID: str
     BeginDate: str
-    EndDate: str
     Type: str
     PaperlessBilling: str
     PaymentMethod: str
@@ -60,9 +58,7 @@ def index():
 def predict_churn_status(churn_details: ChurnPred):
     data = churn_details.model_dump()
     new_data = {
-        "customerID": data['customerID'],
         "BeginDate": data['BeginDate'],
-        "EndDate": data['EndDate'],
         "Type": data['Type'],
         "PaperlessBilling": data['PaperlessBilling'],
         "PaymentMethod": data['PaymentMethod'],
@@ -86,7 +82,7 @@ def predict_churn_status(churn_details: ChurnPred):
     
     # Making predicitons
     
-    prediction = classification_pipeline_1.predict(df)
+    prediction = classification_pipeline_4.predict(df)
     
     if prediction[0] == 0:
         pred = 'No'

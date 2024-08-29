@@ -20,6 +20,7 @@ def evaluate_model(classification_pipeline, model_name):
     print()
     print(f"Evaluating {model_name} with test data shape: {test_data.shape}")
     targets_test = test_data[config.TARGET].apply(lambda x: 0 if x == 'No' else 1)
+    test_data = test_data.drop(['customerID', 'EndDate'], axis=1)
     
     # Obtener las probabilidades predichas
     probabilities = classification_pipeline.predict_proba(test_data)[:, 1]

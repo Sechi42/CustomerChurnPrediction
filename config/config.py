@@ -26,14 +26,14 @@ SAVE_MODEL_PATH = PACKAGE_ROOT / 'trained_models'
 TARGET = 'EndDate'
 
 POST_MERGE_COLUMNS = [
-    'customerID', 'BeginDate', 'EndDate', 'Type', 'PaperlessBilling', 'PaymentMethod',
+    'BeginDate', 'Type', 'PaperlessBilling', 'PaymentMethod',
     'MonthlyCharges', 'TotalCharges', 'customerID', 'InternetService', 'OnlineSecurity',
     'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
     'MultipleLines', 'gender', 'SeniorCitizen', 'Partner', 'Dependents'
 ]
 
 COLUMNS_TO_INTRODUCE = [
-    'customerID', 'BeginDate', 'EndDate', 'Type', 'PaperlessBilling', 'PaymentMethod',
+    'BeginDate', 'Type', 'PaperlessBilling', 'PaymentMethod',
     'MonthlyCharges', 'TotalCharges', 'InternetService', 'OnlineSecurity',
     'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
     'MultipleLines', 'gender', 'SeniorCitizen', 'Partner', 'Dependents'
@@ -65,7 +65,7 @@ FEATURE_TO_ADD = ['begin_month', 'begin_year', 'time_in_company']
 
 NEW_COLUMN = 'time_in_company'
 
-DROP_FEATURES = ['begin_date', 'gender', 'customer_id', 'end_date']
+DROP_FEATURES = ['begin_date', 'gender']
 
 FEATURES_TO_NUMERIC = 'total_charges'
 

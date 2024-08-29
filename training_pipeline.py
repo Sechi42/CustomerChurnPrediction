@@ -11,6 +11,8 @@ def perform_training(model_name, pipeline):
     train_data = load_dataset(config.TRAIN_FILE)
     print(train_data.shape)
     targets_train = train_data[config.TARGET].apply(lambda x: 0 if x == 'No' else 1)
+    train_data = train_data.drop(['customerID', 'EndDate'], axis=1)
+    print(train_data.shape)
     print(targets_train)
     pipeline.fit(train_data,targets_train)
     save_pipeline(pipeline, model_name=model_name)
