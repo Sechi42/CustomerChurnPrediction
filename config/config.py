@@ -1,10 +1,12 @@
 import pathlib
 import os
-import prediction_model
 
-PACKAGE_ROOT = pathlib.Path(prediction_model.__file__).resolve().parent
 
-DATAPATH = os.path.join(PACKAGE_ROOT,"datasets")
+# PACKAGE_ROOT apunta a la carpeta 'project_16'
+PACKAGE_ROOT = pathlib.Path(__file__).resolve().parent.parent
+
+# DATAPATH apunta a la carpeta 'datasets' dentro de 'project_16'
+DATAPATH = PACKAGE_ROOT / "datasets"
 
 CONTRACT = 'contract.csv'
 INTERNET = 'internet.csv'
@@ -19,13 +21,20 @@ MODEL_NAME_2 = 'randforst_classification.pkl'
 MODEL_NAME_3 = 'gradboost_classification.pkl'
 MODEL_NAME_4 = 'cnn_classification.pkl'
 
-SAVE_MODEL_PATH = os.path.join(PACKAGE_ROOT,'trained_models')
+SAVE_MODEL_PATH = PACKAGE_ROOT / 'trained_models'
 
 TARGET = 'EndDate'
 
 POST_MERGE_COLUMNS = [
     'customerID', 'BeginDate', 'EndDate', 'Type', 'PaperlessBilling', 'PaymentMethod',
     'MonthlyCharges', 'TotalCharges', 'customerID', 'InternetService', 'OnlineSecurity',
+    'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
+    'MultipleLines', 'gender', 'SeniorCitizen', 'Partner', 'Dependents'
+]
+
+COLUMNS_TO_INTRODUCE = [
+    'customerID', 'BeginDate', 'EndDate', 'Type', 'PaperlessBilling', 'PaymentMethod',
+    'MonthlyCharges', 'TotalCharges', 'InternetService', 'OnlineSecurity',
     'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
     'MultipleLines', 'gender', 'SeniorCitizen', 'Partner', 'Dependents'
 ]
