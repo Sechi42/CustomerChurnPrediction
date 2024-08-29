@@ -19,17 +19,39 @@ classification_pipeline_4 = load_pipeline(pipeline_to_load=config.MODEL_NAME_4, 
 st.markdown("""
     <style>
     .main {
-        background-color: #f0f2f6;
+        background-color: #1f2937;  /* Fondo oscuro */
         padding: 2rem;
         border-radius: 10px;
+        color: #f3f4f6;  /* Texto claro */
     }
     h1 {
-        color: #4a76a8;
+        color: #10b981;  /* Verde llamativo */
         text-align: center;
+        font-size: 2.5rem;
+    }
+    h2, h3 {
+        color: #f3f4f6;  /* Texto claro */
     }
     .stButton>button {
-        background-color: #4a76a8;
+        background-color: #10b981;  /* Botón verde */
         color: white;
+        font-size: 1rem;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+    }
+    .stSelectbox label, .stNumberInput label, .stTextInput label, .stDateInput label {
+        color: #f3f4f6;  /* Color claro para las etiquetas */
+    }
+    .stSelectbox, .stNumberInput, .stTextInput, .stDateInput {
+        margin-bottom: 1rem;
+        background-color: #374151;  /* Fondo gris oscuro */
+        color: #f3f4f6;  /* Texto claro */
+    }
+    .stWarning {
+        color: #f59e0b;  /* Color de advertencia amarillo */
+    }
+    hr {
+        border: 1px solid #4b5563;  /* Línea divisoria gris */
     }
     </style>
     """, unsafe_allow_html=True)
