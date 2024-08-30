@@ -68,3 +68,36 @@ hr {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+/* Estilo para advertencias */
+.stWarning {
+    background-color: #FFCC00; /* Amarillo brillante */
+    color: #4D2600; /* Marrón oscuro para el texto */
+    border: 2px solid #FF9900; /* Naranja oscuro para el borde */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Estilo para mensajes de éxito (predicción positiva) */
+.stSuccess {
+    background-color: #33CC33; /* Verde brillante */
+    color: #003300; /* Verde oscuro para el texto */
+    border: 2px solid #009900; /* Verde intenso para el borde */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Estilo para mensajes de error (predicción negativa) */
+.stError {
+    background-color: #FF3333; /* Rojo brillante */
+    color: #660000; /* Rojo oscuro para el texto */
+    border: 2px solid #CC0000; /* Rojo intenso para el borde */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
