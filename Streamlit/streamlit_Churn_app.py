@@ -15,10 +15,13 @@ from processing.data_handling import load_pipeline
 # Load the classification pipeline
 classification_pipeline_4 = load_pipeline(pipeline_to_load=config.MODEL_NAME_4, model_name=config.MODEL_NAME_4)
 
-# Load external CSS
 def load_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    try:
+        with open(file_name) as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.error(f"El archivo {file_name} no se encontró.")
+
 
 # Load the CSS file
 load_css("styles.css")
