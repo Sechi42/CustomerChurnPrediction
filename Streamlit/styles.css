@@ -71,8 +71,8 @@ hr {
 
 /* Estilo para advertencias */
 .stWarning {
-    background-color: #FFCC00; /* Amarillo brillante */
-    color: #4D2600; /* Marrón oscuro para el texto */
+    background-color: #ffe991; /* Amarillo brillante */
+    color: #402101; /* Marrón oscuro para el texto */
     border: 2px solid #FF9900; /* Naranja oscuro para el borde */
     padding: 15px;
     border-radius: 5px;
@@ -82,7 +82,7 @@ hr {
 
 /* Estilo para mensajes de éxito (predicción positiva) */
 .stSuccess {
-    background-color: #33CC33; /* Verde brillante */
+    background-color: #92ff92; /* Verde brillante */
     color: #003300; /* Verde oscuro para el texto */
     border: 2px solid #009900; /* Verde intenso para el borde */
     padding: 15px;
@@ -93,7 +93,7 @@ hr {
 
 /* Estilo para mensajes de error (predicción negativa) */
 .stError {
-    background-color: #FF3333; /* Rojo brillante */
+    background-color: #ff8484; /* Rojo brillante */
     color: #660000; /* Rojo oscuro para el texto */
     border: 2px solid #CC0000; /* Rojo intenso para el borde */
     padding: 15px;
