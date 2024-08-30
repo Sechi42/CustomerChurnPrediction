@@ -1,0 +1,70 @@
+/* Fondo oscuro para la página */
+.main {
+    background-color: #1f2937;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #f3f4f6;
+}
+
+/* Título principal */
+h1 {
+    color: #10b981;  /* Verde llamativo */
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* Subtítulos */
+h2, h3 {
+    color: #f3f4f6;
+}
+
+/* Botón personalizado */
+.stButton>button {
+    background-color: #10b981;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Etiquetas de entrada */
+.stSelectbox label, .stNumberInput label, .stTextInput label, .stDateInput label {
+    color: #f3f4f6;
+}
+
+/* Entradas personalizadas */
+.stSelectbox, .stNumberInput, .stTextInput, .stDateInput {
+    margin-bottom: 1rem;
+    background-color: #374151;
+    color: #f3f4f6;
+}
+
+/* Color de advertencia */
+.stWarning {
+    color: #f59e0b;
+}
+
+/* Línea divisoria */
+hr {
+    border: 1px solid #4b5563;
+}
+
+/* Mensajes de éxito */
+.stAlert .st-bf {
+    background-color: #51f98f;  /* Verde más oscuro para éxito */
+    color: #ffffff;  /* Texto blanco para mejor contraste */
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Mensajes de error */
+.stAlert .st-bd {
+    background-color: #dc2626;  /* Rojo intenso para errores */
+    color: #ffffff;  /* Texto blanco para mejor contraste */
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
