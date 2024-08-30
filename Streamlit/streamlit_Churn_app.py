@@ -21,10 +21,11 @@ def load_css(file_name):
             st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     except FileNotFoundError:
         st.error(f"El archivo {file_name} no se encontró.")
+    except Exception as e:
+        st.error(f"Error al cargar {file_name}: {e}")
 
-
-# Load the CSS file
-load_css("styles.css")
+css_path = Path(__file__).parent / "styles.css"
+load_css(css_path)
 
 st.markdown("---")  # Divider line
 
