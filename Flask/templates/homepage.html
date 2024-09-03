@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Churn Prediction Application</h1>
+        <form action="{{ url_for('predict') }}" method="POST" class="form">
+            <!-- Contract Start Date -->
+            <div class="form-group">
+                <label for="BeginDate">Start Date of Contract</label>
+                <input type="date" id="BeginDate" name="BeginDate" required>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Contract Type -->
+            <div class="form-group">
+                <label for="Type">Contract Type</label>
+                <select id="Type" name="Type" required>
+                    <option value="">Select</option>
+                    <option value="Month-to-month">Month-to-month</option>
+                    <option value="One year">One year</option>
+                    <option value="Two year">Two year</option>
+                </select>
+            </div>
+
+            <!-- Paperless Billing -->
+            <div class="form-group">
+                <label for="PaperlessBilling">Paperless Billing</label>
+                <select id="PaperlessBilling" name="PaperlessBilling" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Payment Method -->
+            <div class="form-group">
+                <label for="PaymentMethod">Payment Method</label>
+                <select id="PaymentMethod" name="PaymentMethod" required>
+                    <option value="">Select</option>
+                    <option value="Mailed check">Mailed check</option>
+                    <option value="Electronic check">Electronic check</option>
+                    <option value="Credit card (automatic)">Credit card (automatic)</option>
+                    <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                </select>
+            </div>
+
+            <!-- Monthly Charges -->
+            <div class="form-group">
+                <label for="MonthlyCharges">Monthly Charges</label>
+                <input type="number" id="MonthlyCharges" name="MonthlyCharges" min="0" step="0.01" required>
+            </div>
+
+            <!-- Total Charges -->
+            <div class="form-group">
+                <label for="TotalCharges">Total Charges</label>
+                <input type="number" id="TotalCharges" name="TotalCharges" min="0" step="0.01" required>
+            </div>
+
+            <!-- Internet Service -->
+            <div class="form-group">
+                <label for="InternetService">Internet Service</label>
+                <select id="InternetService" name="InternetService" required>
+                    <option value="">Select</option>
+                    <option value="DSL">DSL</option>
+                    <option value="Fiber optic">Fiber optic</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Online Security -->
+            <div class="form-group">
+                <label for="OnlineSecurity">Online Security</label>
+                <select id="OnlineSecurity" name="OnlineSecurity" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Online Backup -->
+            <div class="form-group">
+                <label for="OnlineBackup">Online Backup</label>
+                <select id="OnlineBackup" name="OnlineBackup" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Device Protection -->
+            <div class="form-group">
+                <label for="DeviceProtection">Device Protection</label>
+                <select id="DeviceProtection" name="DeviceProtection" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Tech Support -->
+            <div class="form-group">
+                <label for="TechSupport">Tech Support</label>
+                <select id="TechSupport" name="TechSupport" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Streaming TV -->
+            <div class="form-group">
+                <label for="StreamingTV">Streaming TV</label>
+                <select id="StreamingTV" name="StreamingTV" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Streaming Movies -->
+            <div class="form-group">
+                <label for="StreamingMovies">Streaming Movies</label>
+                <select id="StreamingMovies" name="StreamingMovies" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Multiple Lines -->
+            <div class="form-group">
+                <label for="MultipleLines">Multiple Lines</label>
+                <select id="MultipleLines" name="MultipleLines" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Senior Citizen -->
+            <div class="form-group">
+                <label for="SeniorCitizen">Senior Citizen</label>
+                <select id="SeniorCitizen" name="SeniorCitizen" required>
+                    <option value="">Select</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <!-- Partner -->
+            <div class="form-group">
+                <label for="Partner">Partner</label>
+                <select id="Partner" name="Partner" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Dependents -->
+            <div class="form-group">
+                <label for="Dependents">Dependents</label>
+                <select id="Dependents" name="Dependents" required>
+                    <option value="">Select</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn-submit">Predict</button>
+            </div>
+        </form>
+        <h3 class="result">{{ prediction }}</h3>
+    </div>
+</body>
+</html>
