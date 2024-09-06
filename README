@@ -1,55 +1,103 @@
-# Condiciones de la asignación principal
+# Predicción de Cancelación de Clientes - Interconnect
 
-Al operador de telecomunicaciones **Interconnect** le gustaría poder pronosticar su tasa de cancelación de clientes. 
-Si se descubre que un usuario o usuaria planea irse, se le ofrecerán códigos promocionales y opciones de planes especiales. 
+## Descripción del Proyecto
 
-El equipo de marketing de Interconnect ha recopilado algunos de los datos personales de sus clientes, incluyendo información 
-sobre sus planes y contratos.
+El operador de telecomunicaciones **Interconnect** busca prever la tasa de cancelación de sus clientes. Si se identifica que un cliente planea cancelar su servicio, se le ofrecerán códigos promocionales y opciones de planes especiales para retenerlo. Este proyecto tiene como objetivo construir un modelo que prediga la probabilidad de cancelación de clientes, utilizando machine learning.
+
+El proyecto incluye un pipeline completamente modularizado, que permite reutilizar el modelo entrenado en diversas plataformas de despliegue como Streamlit, FastAPI o Flask.
 
 ### Servicios de Interconnect
 
-Interconnect proporciona principalmente dos tipos de servicios:
+Interconnect ofrece una variedad de servicios que incluyen:
 
-1. **Comunicación por teléfono fijo.** El teléfono se puede conectar a varias líneas de manera simultánea.
-2. **Internet.** La red se puede configurar a través de una línea telefónica (DSL, *línea de abonado digital*) o a través de un cable de fibra óptica.
+1. **Comunicación por teléfono fijo:** Se puede conectar a varias líneas.
+2. **Internet:** A través de DSL o fibra óptica.
+3. Otros servicios como:
+   - **Seguridad en Internet** (ProtecciónDeDispositivo, SeguridadEnLínea).
+   - **Soporte técnico**.
+   - **Almacenamiento en la nube** (BackupOnline).
+   - **Streaming de TV** y **directorio de películas**.
 
-Algunos otros servicios que ofrece la empresa incluyen:
+Los clientes pueden optar por contratos mensuales o firmar contratos de 1 o 2 años. Además, pueden pagar con varios métodos y recibir facturas electrónicas.
 
-- **Seguridad en Internet:** software antivirus (*ProtecciónDeDispositivo*) y un bloqueador de sitios web maliciosos (*SeguridadEnLínea*).
-- **Una línea de soporte técnico** (*SoporteTécnico*).
-- **Almacenamiento de archivos en la nube y backup de datos** (*BackupOnline*).
-- **Streaming de TV** (*StreamingTV*) y **directorio de películas** (*StreamingPelículas*).
+### Datos Utilizados
 
-La clientela puede elegir entre un pago mensual o firmar un contrato de 1 o 2 años. Puede utilizar varios métodos de pago y recibir una factura electrónica después de una transacción.
+El proyecto utiliza datos de cuatro archivos principales:
 
-### Descripción de los datos
+- `contract.csv`: Información del contrato.
+- `personal.csv`: Datos personales del cliente.
+- `internet.csv`: Información sobre los servicios de Internet.
+- `phone.csv`: Información sobre los servicios telefónicos.
 
-Los datos consisten en archivos obtenidos de diferentes fuentes:
+Cada archivo contiene una columna `customerID` que identifica de forma única a cada cliente. Los datos son válidos a partir del 1 de febrero de 2020.
 
-- `contract.csv` — información del contrato;
-- `personal.csv` — datos personales del cliente;
-- `internet.csv` — información sobre los servicios de Internet;
-- `phone.csv` — información sobre los servicios telefónicos.
+### Características del Modelo
 
-En cada archivo, la columna `customerID` (ID de cliente) contiene un código único asignado a cada cliente. La información del contrato es válida a partir del 1 de febrero de 2020.
-
-
-# Aclaración: Resumen
-
-- **Característica objetivo:** La columna `'EndDate'` es igual a `'No'`.
-
+- **Característica objetivo:** La columna `'EndDate'`, donde `'No'` indica que el cliente sigue activo.
 - **Métrica principal:** AUC-ROC.
+- **Métrica adicional:** Exactitud (Accuracy).
 
-- **Métrica adicional:** Exactitud.
+#### Criterios de Evaluación
 
-## Criterios de evaluación:
+- **AUC-ROC < 0.75:** 0 SP
+- **0.75 ≤ AUC-ROC < 0.81:** 4 SP
+- **0.81 ≤ AUC-ROC < 0.85:** 4.5 SP
+- **0.85 ≤ AUC-ROC < 0.87:** 5 SP
+- **0.87 ≤ AUC-ROC < 0.88:** 5.5 SP
+- **AUC-ROC ≥ 0.88:** 6 SP
 
-- **AUC-ROC < 0.75** — 0 SP
-- **0.75 ≤ AUC-ROC < 0.81** — 4 SP
-- **0.81 ≤ AUC-ROC < 0.85** — 4.5 SP
-- **0.85 ≤ AUC-ROC < 0.87** — 5 SP
-- **0.87 ≤ AUC-ROC < 0.88** — 5.5 SP
-- **AUC-ROC ≥ 0.88** — 6 SP
+### Resultados del Proyecto
+
+Se entrenaron cuatro modelos: regresión logística, bosque aleatorio, boosting por descenso de gradiente y una red neuronal. El objetivo era obtener un AUC-ROC superior a 0.88, lo cual se logró con el modelo de red neuronal.
+
+Los mejores modelos fueron:
+
+- **Red Neuronal:**
+  - AUC-ROC: 0.93
+  - Accuracy: 0.89
+- **Boosting por Descenso de Gradiente:**
+  - AUC-ROC: 0.94
+  - Accuracy: 0.90
+
+## Estructura Modularizada del Proyecto
+
+Este proyecto está completamente modularizado, permitiendo su fácil integración con plataformas de despliegue como **Streamlit**, **FastAPI** o **Flask**. Los datos se procesan y el modelo se entrena mediante un pipeline automatizado y adaptable.
+
+### Estructura del Directorio
+
+```bash
+
+├── MANIFEST.in
+├── README.md
+├── VERSION
+├── __init__.py
+├── config
+│   ├── __init__.py
+│   └── config.py
+├── datasets
+│   ├── __init__.py
+│   ├── test.csv
+│   ├── train.csv
+│   ├── contract.csv
+│   ├── internet.csv
+│   ├── personal.csv
+│   └── phone.csv
+├── pipeline.py
+├── predict.py
+├── processing
+│   ├── __init__.py
+│   ├── data_handling.py
+│   └── preprocessing.py
+├── trained_models
+│   ├── __init__.py
+│   └── classification.pkl
+├── training_pipeline.py
+├── requirements.txt
+├── setup.py
+└── tests
+    ├── pytest.ini
+    └── test_prediction.py
+
 
 
 ## Running Locally
@@ -94,41 +142,5 @@ deactivate
 ```
 
 
-## Directory structure
-
-```bash
-prediction_model
-
-
-├── MANIFEST.in
-├── README.md
-├── VERSION
-├── __init__.py
-├── config
-│   ├── __init__.py
-│   └── config.py
-├── datasets
-│   ├── __init__.py
-│   ├── test.csv
-│   ├── train.csv
-│   ├── contract.csv
-│   ├── internet.csv
-│   ├── personal.csv
-│   └── phone.csv
-├── pipeline.py
-├── predict.py
-├── processing
-│   ├── __init__.py
-│   ├── data_handling.py
-│   └── preprocessing.py
-├── trained_models
-│   ├── __init__.py
-│   └── classification.pkl
-├── training_pipeline.py
-├── requirements.txt
-├── setup.py
-└── tests
-    ├── pytest.ini
-    └── test_prediction.py
 
 ```
