@@ -24,3 +24,9 @@ packaging-ml-model/build
 *.egg
 
 Flask/basic_demo_flask
+
+FASTAPI/.github/workflows
+FASTAPI/prediction_model
+
+FASTAPI/Dockerfile
+
