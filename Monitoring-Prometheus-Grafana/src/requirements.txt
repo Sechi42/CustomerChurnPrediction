@@ -1,0 +1,12 @@
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+tensorflow==2.17.0
+matplotlib==3.9.1
+seaborn==0.13.2
+plotly==5.22.0
+fastapi[all]==0.102.0  # Especifica una versión que sea compatible con pydantic
+uvicorn==0.22.0
+urllib3==2.2.2
+prometheus-fastapi-instrumentator==5.10.0
+# Eliminado pydantic==1.10.7 para evitar conflictos
